@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplikasi Kunjungan Industri - SMK Budi Murni 2</title>
+<style>
+:root{--navy:#10233f;--blue:#2457d6;--cyan:#16a6b8;--gold:#f2b84b;--bg:#f3f6fb;--ink:#17243a;--muted:#68778d;--line:#e3e9f2;--white:#fff;--green:#16865b;--red:#c44747;--shadow:0 12px 34px rgba(16,35,63,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;font-weight:700}.app{max-width:1500px;margin:auto;padding:22px}.hero{background:linear-gradient(120deg,#10233f,#2457d6 72%,#16a6b8);color:white;border-radius:22px;padding:26px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:260px;height:260px;border:35px solid #ffffff16;border-radius:50%;right:-50px;top:-110px}.hero small{letter-spacing:2px;text-transform:uppercase;opacity:.8;font-weight:700}.hero h1{margin:8px 0;font-size:clamp(25px,4vw,38px)}.hero p{margin:0;color:#e6efff}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;position:relative;z-index:1}.btn-light{background:white;color:var(--navy)}.btn-gold{background:var(--gold);color:#352300}.btn-blue{background:var(--blue);color:white}.btn-dark{background:var(--navy);color:white}.btn-soft{background:#eaf0ff;color:var(--blue)}.btn-red{background:#fff0f0;color:var(--red)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.stat{background:white;padding:17px;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.stat span{color:var(--muted);font-size:13px;font-weight:700}.stat strong{display:block;font-size:29px;margin-top:5px;color:var(--navy)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tab{background:#e7edf7;color:#506078}.tab.active{background:var(--navy);color:white}.panel{display:none;background:white;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.panel.active{display:block}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.panel h2{margin:0;color:var(--navy)}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:12px;font-weight:800;color:#53647d}.field input,.field select{border:1px solid #d7dfeb;border-radius:9px;padding:10px;background:#fff;min-width:0;color:var(--ink)}.field input:focus,.field select:focus{outline:2px solid #b9ccff;border-color:var(--blue)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;margin-top:14px}table{width:100%;border-collapse:collapse;min-width:760px}th{background:#f0f4fa;color:#40516a;font-size:12px;text-transform:uppercase;letter-spacing:.4px;text-align:left}td,th{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:middle}td{font-size:13px}tr:last-child td{border-bottom:0}td input,td select{width:100%;min-width:80px;border:1px solid #dce3ed;padding:7px;border-radius:7px}.pill{display:inline-block;padding:5px 9px;border-radius:30px;background:#eaf0ff;color:#2457d6;font-size:11px;font-weight:800}.bus-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.bus-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:linear-gradient(180deg,#fff,#f8faff)}.bus-card h3{margin:0 0 5px;color:var(--navy)}.progress{height:8px;border-radius:20px;background:#e8edf5;overflow:hidden;margin:10px 0}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan))}.bus-card strong{font-size:22px}.notice{background:#fff8e8;border:1px solid #f4dfad;color:#70500c;padding:12px 14px;border-radius:11px;font-size:13px;margin:12px 0}.footer{text-align:center;color:#8793a5;font-size:12px;padding:22px}.hidden{display:none!important}.modal-back{position:fixed;inset:0;background:#0d1b2dcc;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal{background:white;border-radius:18px;padding:22px;width:min(600px,100%);max-height:90vh;overflow:auto}.modal h3{margin-top:0}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.file-label{display:inline-flex;align-items:center;gap:8px;background:#eaf0ff;color:var(--blue);padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}.empty{text-align:center;color:var(--muted);padding:25px}.room-summary{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.room-summary span{background:#eef7f7;color:#14636a;padding:7px 10px;border-radius:8px;font-size:12px;font-weight:700}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.bus-cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.app{padding:12px}.hero{padding:22px}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:23px}.grid{grid-template-columns:1fr}.bus-cards{grid-template-columns:1fr 1fr}}
+@media print{body{background:white}.app{max-width:none;padding:0}.hero{border-radius:0;box-shadow:none;padding:15px 20px}.hero-actions,.tabs,.no-print,.footer{display:none!important}.panel{display:none!important}.panel.printing{display:block!important;box-shadow:none;border:0;padding:12px}.stats{margin:10px 0}.stat{box-shadow:none}.table-wrap{overflow:visible}table{min-width:0;font-size:10px}td,th{padding:6px 7px;font-size:10px}td input,td select{border:0;padding:0}.print-title{display:block!important} .bus-cards{grid-template-columns:repeat(5,1fr)}}
+.print-title{display:none}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="hero">
+ <small>Manajemen perjalanan edukasi • Tahun Pelajaran 2026/2027</small>
+ <h1>Dashboard Kunjungan Industri</h1>
+ <p>SMK Budi Murni 2 · Pembagian bus, peserta, hotel, kamar, dan nomor kamar</p>
+ <div class="hero-actions">
+  <button class="btn-gold" onclick="openParticipantModal()">＋ Tambah Peserta</button>
+  <button class="btn-light" onclick="printCurrent()">Cetak halaman aktif</button>
+  <button class="btn-light" onclick="exportAll()">⬇ Download semua data (CSV)</button>
+  <button class="btn-light" onclick="saveData()">Simpan perubahan</button>
+ </div>
+</header>
+<section class="stats">
+ <div class="stat"><span>TOTAL PESERTA</span><strong id="totalStat">273</strong></div>
+ <div class="stat"><span>SISWA</span><strong id="studentStat">250</strong></div>
+ <div class="stat"><span>GURU / PENDAMPING</span><strong id="teacherStat">23</strong></div>
+ <div class="stat"><span>KURSI BUS TERSEDIA</span><strong id="seatStat">277</strong></div>
+</section>
+<nav class="tabs no-print">
+ <button class="tab active" data-tab="overview">Ringkasan</button>
+ <button class="tab" data-tab="participants">Data Peserta</button>
+ <button class="tab" data-tab="buses">Pembagian 5 Bis</button>
+ <button class="tab" data-tab="hotels">Hotel & Kamar</button>
+ <button class="tab" data-tab="reports">Download & Cetak</button>
+ <button class="tab" data-tab="settings">Pengaturan</button>
+</nav>
+<section class="panel active" id="overview">
+ <div class="panel-head"><div><h2>Ringkasan perjalanan</h2><div class="muted">Pantau kapasitas bus dan alokasi penginapan.</div></div><span class="pill">OPERATOR MODE • DAPAT DIEDIT</span></div>
+ <div class="notice">Data awal berisi 250 siswa dan 23 guru. Kapasitas contoh 5 bis: Bis 1–3 masing-masing 59 kursi, Bis 4–5 masing-masing 50 kursi (total 277 kursi). Silakan ubah kapasitas sesuai armada sebenarnya.</div>
+ <div class="bus-cards" id="overviewBuses"></div>
+ <div class="panel-head" style="margin-top:24px"><h2>Status hotel</h2></div>
+ <div class="room-summary" id="hotelSummary"></div>
+ <p class="muted">Pembagian kamar awal menggunakan 4 orang per kamar untuk siswa dan kamar terpisah untuk guru. Nomor kamar dan nama hotel dapat diedit di tab Hotel & Kamar.</p>
+</section>
+<section class="panel" id="participants">
+ <div class="panel-head"><div><h2>Database peserta</h2><div class="muted">Edit nama, jenis peserta, kelas, bis, hotel, dan kamar langsung pada tabel.</div></div><div class="toolbar no-print"><input id="searchParticipant" placeholder="Cari nama / kelas..." oninput="renderParticipants()" style="padding:10px;border:1px solid #d7dfeb;border-radius:9px"><button class="btn-blue" onclick="openParticipantModal()">＋ Tambah</button><button class="btn-soft" onclick="autoAssignBuses()">Atur bis otomatis</button><button class="btn-soft" onclick="autoAssignRooms()">Atur kamar otomatis</button></div></div>
+ <div class="toolbar no-print"><label class="file-label">⬆ Import CSV<input type="file" accept=".csv,text/csv" onchange="importCSV(event)" hidden></label><button class="btn-soft" onclick="downloadTemplate()">Download template CSV</button><button class="btn-red" onclick="resetParticipants()">Reset data awal</button></div>
+ <div class="table-wrap"><table><thead><tr><th>No</th><th>Nama peserta</th><th>Status</th><th>Kelas/Jabatan</th><th>Bis</th><th>Kota/Hotel</th><th>No. Kamar</th><th class="no-print">Aksi</th></tr></thead><tbody id="participantRows"></tbody></table></div>
+ <p class="muted">Catatan: data contoh diberi nama “Siswa 001” dan “Guru 01”. Ganti melalui edit atau impor CSV berisi nama peserta sebenarnya.</p>
+</section>
+<section class="panel" id="buses">
+ <div class="panel-head"><div><h2>Pembagian 5 bis</h2><div class="muted">Kapasitas dapat disunting. Penempatan otomatis mengikuti urutan daftar peserta.</div></div><div class="toolbar no-print"><button class="btn-blue" onclick="autoAssignBuses()">Bagi otomatis</button><button class="btn-soft" onclick="exportBuses()">Download pembagian bis</button><button class="btn-soft" onclick="printSection('buses')">Cetak daftar bis</button></div></div>
+ <div class="grid" id="busSettings"></div><div class="bus-cards" id="busCards" style="margin-top:18px"></div>
+ <div class="table-wrap"><table><thead><tr><th>No</th><th>Nama</th><th>Status</th><th>Kelas/Jabatan</th><th>Nomor Bis</th></tr></thead><tbody id="busRows"></tbody></table></div>
+</section>
+<section class="panel" id="hotels">
+ <div class="panel-head"><div><h2>Pembagian hotel & kamar</h2><div class="muted">Penginapan tujuan Semarang dan Yogyakarta. Nama hotel, kapasitas kamar, dan nomor kamar bisa diedit.</div></div><div class="toolbar no-print"><button class="btn-blue" onclick="autoAssignRooms()">Bagi kamar otomatis</button><button class="btn-soft" onclick="exportHotels()">Download pembagian hotel</button><button class="btn-soft" onclick="printSection('hotels')">Cetak daftar kamar</button></div></div>
+ <div class="grid">
+  <div class="field"><label>Nama hotel Semarang</label><input id="hotelSemarang" value="Hotel Semarang" onchange="updateHotels()"></div>
+  <div class="field"><label>Nama hotel Yogyakarta</label><input id="hotelYogya" value="Hotel Yogyakarta" onchange="updateHotels()"></div>
+  <div class="field"><label>Kapasitas siswa per kamar</label><input id="roomStudentCap" type="number" min="1" value="4" onchange="updateHotels()"></div>
+  <div class="field"><label>Kapasitas guru per kamar</label><input id="roomTeacherCap" type="number" min="1" value="2" onchange="updateHotels()"></div>
+ </div>
+ <div class="notice">Alokasi awal dibagi rata ke dua kota. Sistem memisahkan kamar siswa dan guru. Pastikan konfigurasi akhir sesuai kebijakan sekolah, kapasitas resmi hotel, serta daftar pemesanan hotel.</div>
+ <div class="room-summary" id="roomStats"></div>
+ <div class="table-wrap"><table><thead><tr><th>No</th><th>Nama peserta</th><th>Status</th><th>Kota</th><th>Hotel</th><th>No. Kamar</th><th class="no-print">Aksi</th></tr></thead><tbody id="hotelRows"></tbody></table></div>
+</section>
+<section class="panel" id="reports">
+ <div class="panel-head"><div><h2>Download & cetak laporan</h2><div class="muted">Unduh file CSV yang bisa dibuka di Excel atau cetak langsung ke PDF melalui dialog printer.</div></div></div>
+ <div class="grid">
+  <div class="stat"><span>DAFTAR SELURUH PESERTA</span><strong>CSV</strong><button class="btn-blue" onclick="exportAll()">Download</button></div>
+  <div class="stat"><span>PEMBAGIAN 5 BIS</span><strong>CSV</strong><button class="btn-blue" onclick="exportBuses()">Download</button></div>
+  <div class="stat"><span>HOTEL & NOMOR KAMAR</span><strong>CSV</strong><button class="btn-blue" onclick="exportHotels()">Download</button></div>
+  <div class="stat"><span>LEMBAR CETAK LENGKAP</span><strong>PDF</strong><button class="btn-dark" onclick="printAll()">Cetak / Simpan PDF</button></div>
+ </div>
+ <div class="notice">Untuk membuat PDF: klik “Cetak / Simpan PDF”, lalu pada pilihan printer browser pilih “Save as PDF” dan ukuran kertas A4. Gunakan orientasi Landscape untuk tabel yang lebar.</div>
+ <div class="toolbar"><button class="btn-soft" onclick="backupJSON()">Backup data JSON</button><label class="file-label">Pulihkan backup<input type="file" accept=".json,application/json" onchange="restoreJSON(event)" hidden></label></div>
+</section>
+<section class="panel" id="settings">
+ <div class="panel-head"><div><h2>Pengaturan operator</h2><div class="muted">Ubah identitas kegiatan dan jumlah awal peserta.</div></div></div>
+ <div class="grid">
+  <div class="field"><label>Nama sekolah</label><input id="schoolName" value="SMK Budi Murni 2"></div>
+  <div class="field"><label>Nama kegiatan</label><input id="eventName" value="Kunjungan Industri"></div>
+  <div class="field"><label>Tujuan 1</label><input value="Semarang" id="destination1"></div>
+  <div class="field"><label>Tujuan 2</label><input value="Yogyakarta" id="destination2"></div>
+ </div>
+ <div class="toolbar" style="margin-top:15px"><button class="btn-blue" onclick="saveSettings()">Simpan pengaturan</button><button class="btn-soft" onclick="saveData()">Simpan semua data</button></div>
+ <p class="muted">Penyimpanan otomatis menggunakan browser pada perangkat ini (localStorage). Lakukan backup JSON secara berkala. Data tidak otomatis tersinkron ke perangkat lain.</p>
+</section>
+<div class="footer">Aplikasi Kunjungan Industri • SMK Budi Murni 2 • Operator dapat mengedit seluruh data</div>
+</div>
+<div class="modal-back" id="participantModal"><div class="modal"><h3 id="modalTitle">Tambah peserta</h3><div class="grid" style="grid-template-columns:1fr 1fr">
+ <div class="field"><label>Nama lengkap</label><input id="pName" placeholder="Nama peserta"></div>
+ <div class="field"><label>Status</label><select id="pType"><option>Siswa</option><option>Guru</option></select></div>
+ <div class="field"><label>Kelas / Jabatan</label><input id="pClass" placeholder="Contoh: X DKV / Guru"></div>
+ <div class="field"><label>Nomor bis</label><select id="pBus"><option>Bis 1</option><option>Bis 2</option><option>Bis 3</option><option>Bis 4</option><option>Bis 5</option></select></div>
+ <div class="field"><label>Kota tujuan</label><select id="pCity"><option>Semarang</option><option>Yogyakarta</option></select></div>
+ <div class="field"><label>Nomor kamar</label><input id="pRoom" placeholder="Contoh: 201"></div>
+ </div><div class="modal-actions"><button class="btn-soft" onclick="closeParticipantModal()">Batal</button><button class="btn-blue" onclick="saveParticipant()">Simpan peserta</button></div></div></div>
+<script>
+const BUS_DEFAULT=[59,59,59,50,50];
+let state={participants:[],busCaps:[...BUS_DEFAULT],hotels:{Semarang:"Hotel Semarang",Yogyakarta:"Hotel Yogyakarta"},roomStudentCap:4,roomTeacherCap:2,school:"SMK Budi Murni 2",event:"Kunjungan Industri",dest1:"Semarang",dest2:"Yogyakarta"};
+let editingId=null;
+const $=id=>document.getElementById(id);
+function makeInitial(){let a=[];for(let i=1;i<=250;i++)a.push({id:crypto.randomUUID(),name:`Siswa ${String(i).padStart(3,'0')}`,type:"Siswa",kelas:"",bus:"",city:"",hotel:"",room:""});for(let i=1;i<=23;i++)a.push({id:crypto.randomUUID(),name:`Guru ${String(i).padStart(2,'0')}`,type:"Guru",kelas:"Guru/Pendamping",bus:"",city:"",hotel:"",room:""});state.participants=a;autoAssignBuses(false);autoAssignRooms(false)}
+function saveData(){localStorage.setItem("ki_bm2_data",JSON.stringify(state));toast("Data berhasil disimpan di perangkat ini.");}
+function loadData(){try{let d=JSON.parse(localStorage.getItem("ki_bm2_data"));if(d&&Array.isArray(d.participants))state={...state,...d}}catch(e){}if(!state.participants.length)makeInitial();syncSettings();renderAll()}
+function toast(s){let n=document.createElement("div");n.textContent=s;n.style="position:fixed;bottom:20px;right:20px;background:#10233f;color:white;padding:12px 18px;border-radius:10px;z-index:20;box-shadow:0 8px 25px #0003";document.body.appendChild(n);setTimeout(()=>n.remove(),2200)}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function syncSettings(){$("hotelSemarang").value=state.hotels.Semarang;$("hotelYogya").value=state.hotels.Yogyakarta;$("roomStudentCap").value=state.roomStudentCap;$("roomTeacherCap").value=state.roomTeacherCap;$("schoolName").value=state.school;$("eventName").value=state.event;$("destination1").value=state.dest1;$("destination2").value=state.dest2}
+function updateHotels(){state.hotels.Semarang=$("hotelSemarang").value;state.hotels.Yogyakarta=$("hotelYogya").value;state.roomStudentCap=Math.max(1,+$("roomStudentCap").value||4);state.roomTeacherCap=Math.max(1,+$("roomTeacherCap").value||2);state.participants.forEach(p=>{if(p.city)p.hotel=state.hotels[p.city]||p.hotel});renderAll();saveData()}
+function saveSettings(){state.school=$("schoolName").value;state.event=$("eventName").value;state.dest1=$("destination1").value;state.dest2=$("destination2").value;saveData();renderAll()}
+function renderAll(){renderStats();renderOverview();renderParticipants();renderBusSettings();renderBuses();renderHotels();$("schoolName").value=state.school;$("eventName").value=state.event}
+function renderStats(){let s=state.participants.filter(p=>p.type==="Siswa").length,t=state.participants.length-s; $("totalStat").textContent=state.participants.length;$("studentStat").textContent=s;$("teacherStat").textContent=t;$("seatStat").textContent=state.busCaps.reduce((a,b)=>a+b,0)}
+function renderOverview(){let h="";state.busCaps.forEach((cap,i)=>{let n=state.participants.filter(p=>p.bus===`Bis ${i+1}`).length;h+=`<div class="bus-card"><h3>Bis ${i+1}</h3><div class="muted">Kapasitas ${cap} kursi</div><strong>${n} / ${cap}</strong><div class="progress"><i style="width:${Math.min(100,n/cap*100)}%"></i></div><span class="pill">${cap-n>=0?`${cap-n} kursi tersedia`:`Kelebihan ${n-cap}`}</span></div>`});$("overviewBuses").innerHTML=h;let c={Semarang:0,Yogyakarta:0};state.participants.forEach(p=>{if(c[p.city]!=null)c[p.city]++});$("hotelSummary").innerHTML=`<span>Semarang: ${c.Semarang} peserta</span><span>Yogyakarta: ${c.Yogyakarta} peserta</span><span>Total: ${state.participants.length} peserta</span>`}
+function renderParticipants(){let q=($("searchParticipant")?.value||"").toLowerCase();let a=state.participants.filter(p=>(p.name+" "+p.kelas).toLowerCase().includes(q));$("participantRows").innerHTML=a.map((p,i)=>`<tr><td>${i+1}</td><td>${esc(p.name)}</td><td><span class="pill">${p.type}</span></td><td>${esc(p.kelas)}</td><td>${esc(p.bus)}</td><td>${esc(p.city)}</td><td>${esc(p.room)}</td><td class="no-print"><button class="btn-soft" onclick="editParticipant('${p.id}')">Edit</button> <button class="btn-red" onclick="deleteParticipant('${p.id}')">Hapus</button></td></tr>`).join("")||'<tr><td colspan="8" class="empty">Tidak ada peserta.</td></tr>'}
+function renderBusSettings(){$("busSettings").innerHTML=state.busCaps.map((v,i)=>`<div class="field"><label>Kapasitas Bis ${i+1}</label><input type="number" min="1" value="${v}" onchange="changeBusCap(${i},this.value)"></div>`).join("")}
+function changeBusCap(i,v){state.busCaps[i]=Math.max(1,+v||1);renderAll();saveData()}
+function renderBuses(){let cards="",rows="";state.busCaps.forEach((cap,i)=>{let ps=state.participants.filter(p=>p.bus===`Bis ${i+1}`);cards+=`<div class="bus-card"><h3>Bis ${i+1}</h3><div class="muted">Kapasitas ${cap}</div><strong>${ps.length}/${cap}</strong><div class="progress"><i style="width:${Math.min(100,ps.length/cap*100)}%"></i></div><span class="pill">${ps.filter(p=>p.type==="Siswa").length} siswa • ${ps.filter(p=>p.type==="Guru").length} guru</span></div>`});state.participants.forEach((p,i)=>rows+=`<tr><td>${i+1}</td><td>${esc(p.name)}</td><td>${p.type}</td><td>${esc(p.kelas)}</td><td><select onchange="setField('${p.id}','bus',this.value)"><option value="">Pilih</option>${state.busCaps.map((_,j)=>`<option ${p.bus===`Bis ${j+1}`?'selected':''}>Bis ${j+1}</option>`).join("")}</select></td></tr>`);$("busCards").innerHTML=cards;$("busRows").innerHTML=rows}
+function renderHotels(){let rows="",counts={Semarang:0,Yogyakarta:0};state.participants.forEach((p,i)=>{if(counts[p.city]!=null)counts[p.city]++;rows+=`<tr><td>${i+1}</td><td>${esc(p.name)}</td><td>${p.type}</td><td><select onchange="setCity('${p.id}',this.value)"><option value="">Pilih kota</option><option ${p.city==="Semarang"?"selected":""}>Semarang</option><option ${p.city==="Yogyakarta"?"selected":""}>Yogyakarta</option></select></td><td>${esc(p.hotel)}</td><td><input value="${esc(p.room)}" onchange="setField('${p.id}','room',this.value)" placeholder="No. kamar"></td><td class="no-print"><button class="btn-soft" onclick="editParticipant('${p.id}')">Edit</button></td></tr>`});$("hotelRows").innerHTML=rows;$("roomStats").innerHTML=`<span>Semarang: ${counts.Semarang} peserta • ${state.hotels.Semarang}</span><span>Yogyakarta: ${counts.Yogyakarta} peserta • ${state.hotels.Yogyakarta}</span>`}
+function setField(id,k,v){let p=state.participants.find(x=>x.id===id);if(p){p[k]=v;renderAll();saveData()}}
+function setCity(id,v){let p=state.participants.find(x=>x.id===id);if(p){p.city=v;p.hotel=v?state.hotels[v]:"";renderAll();saveData()}}
+function autoAssignBuses(doSave=true){let cap=state.busCaps;let total=cap.reduce((a,b)=>a+b,0);if(state.participants.length>total){toast(`Kapasitas kurang ${state.participants.length-total} kursi. Tambah kapasitas bus.`);return}let idx=0,used=0;state.participants.forEach(p=>{while(idx<4&&used>=cap[idx]){idx++;used=0}p.bus=`Bis ${idx+1}`;used++});renderAll();if(doSave)saveData()}
+function autoAssignRooms(doSave=true){let sc=state.roomStudentCap,tc=state.roomTeacherCap;let groups={Semarang:[],Yogyakarta:[]};state.participants.forEach((p,i)=>{p.city=i%2===0?"Semarang":"Yogyakarta";groups[p.city].push(p)});Object.keys(groups).forEach(city=>{let students=groups[city].filter(p=>p.type==="Siswa"),teachers=groups[city].filter(p=>p.type==="Guru");let roomNum=201;function fill(list,cap,prefix){for(let i=0;i<list.length;i+=cap){let room=String(roomNum++);list.slice(i,i+cap).forEach(p=>{p.room=room;p.hotel=state.hotels[city]})}}fill(students,sc);roomNum=501;fill(teachers,tc)});renderAll();if(doSave)saveData()}
+function openParticipantModal(){editingId=null;$("modalTitle").textContent="Tambah peserta";["pName","pClass","pRoom"].forEach(x=>$(x).value="");$("pType").value="Siswa";$("pBus").value="Bis 1";$("pCity").value="Semarang";$("participantModal").style.display="flex"}
+function closeParticipantModal(){$("participantModal").style.display="none"}
+function editParticipant(id){let p=state.participants.find(x=>x.id===id);if(!p)return;editingId=id;$("modalTitle").textContent="Edit peserta";$("pName").value=p.name;$("pType").value=p.type;$("pClass").value=p.kelas;$("pBus").value=p.bus||"Bis 1";$("pCity").value=p.city||"Semarang";$("pRoom").value=p.room;$("participantModal").style.display="flex"}
+function saveParticipant(){let d={name:$("pName").value.trim(),type:$("pType").value,kelas:$("pClass").value.trim(),bus:$("pBus").value,city:$("pCity").value,hotel:state.hotels[$("pCity").value],room:$("pRoom").value.trim()};if(!d.name){alert("Nama peserta harus diisi.");return}if(editingId)Object.assign(state.participants.find(p=>p.id===editingId),d);else state.participants.push({id:crypto.randomUUID(),...d});closeParticipantModal();renderAll();saveData()}
+function deleteParticipant(id){if(confirm("Hapus peserta ini?")){state.participants=state.participants.filter(p=>p.id!==id);renderAll();saveData()}}
+function resetParticipants(){if(confirm("Kembalikan ke data contoh 250 siswa dan 23 guru? Perubahan saat ini akan diganti.")){makeInitial();renderAll();saveData()}}
+function csvEscape(v){return '"'+String(v??"").replace(/"/g,'""')+'"'}
+function downloadCSV(name,headers,rows){let csv="\ufeff"+[headers,...rows].map(r=>r.map(csvEscape).join(";")).join("\r\n");let blob=new Blob([csv],{type:"text/csv;charset=utf-8;"});let a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();URL.revokeObjectURL(a.href)}
+function exportAll(){downloadCSV("Data_Peserta_Kunjungan_Industri.csv",["No","Nama","Status","Kelas/Jabatan","Bis","Kota","Hotel","Nomor Kamar"],state.participants.map((p,i)=>[i+1,p.name,p.type,p.kelas,p.bus,p.city,p.hotel,p.room]))}
+function exportBuses(){downloadCSV("Pembagian_5_Bis.csv",["No","Nama","Status","Kelas/Jabatan","Bis"],state.participants.map((p,i)=>[i+1,p.name,p.type,p.kelas,p.bus]))}
+function exportHotels(){downloadCSV("Pembagian_Hotel_dan_Kamar.csv",["No","Nama","Status","Kota","Hotel","Nomor Kamar"],state.participants.map((p,i)=>[i+1,p.name,p.type,p.city,p.hotel,p.room]))}
+function downloadTemplate(){downloadCSV("Template_Import_Peserta.csv",["Nama","Status","Kelas/Jabatan","Bis","Kota","Nomor Kamar"],[["Nama Siswa","Siswa","X DKV","Bis 1","Semarang","201"],["Nama Guru","Guru","Guru/Pendamping","Bis 2","Yogyakarta","501"]])}
+function importCSV(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{let lines=r.result.replace(/^\uFEFF/,"").split(/\r?\n/).filter(Boolean);let sep=lines[0].includes(";")?";":",";let parse=s=>s.split(sep).map(x=>x.trim().replace(/^"|"$/g,"").replace(/""/g,'"'));let head=parse(lines.shift()).map(x=>x.toLowerCase());let ix=k=>head.findIndex(x=>x===k.toLowerCase());let added=0;lines.forEach(line=>{let a=parse(line),name=a[ix("Nama")]||a[0];if(!name)return;let type=a[ix("Status")]||"Siswa",city=a[ix("Kota")]||"";state.participants.push({id:crypto.randomUUID(),name,type,kelas:a[ix("Kelas/Jabatan")]||"",bus:a[ix("Bis")]||"",city,hotel:state.hotels[city]||"",room:a[ix("Nomor Kamar")]||""});added++});renderAll();saveData();toast(`${added} peserta berhasil diimpor.`)};r.readAsText(f);e.target.value=""}
+function backupJSON(){let b=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="Backup_Kunjungan_Industri.json";a.click();URL.revokeObjectURL(a.href)}
+function restoreJSON(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!Array.isArray(d.participants))throw 0;state={...state,...d};syncSettings();renderAll();saveData();toast("Backup berhasil dipulihkan.")}catch(x){alert("File backup tidak valid.")}};r.readAsText(f);e.target.value=""}
+function printCurrent(){let active=document.querySelector(".panel.active");if(!active)return;document.querySelectorAll(".panel").forEach(p=>p.classList.remove("printing"));active.classList.add("printing");window.print();active.classList.remove("printing")}
+function printSection(id){document.querySelectorAll(".panel").forEach(p=>p.classList.remove("printing"));$(id).classList.add("printing");window.print();$(id).classList.remove("printing")}
+function printAll(){document.querySelectorAll(".panel").forEach(p=>p.classList.add("printing"));window.print();document.querySelectorAll(".panel").forEach(p=>p.classList.remove("printing"))}
+function switchTab(id){document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.tab===id));document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active",p.id===id))}
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>switchTab(t.dataset.tab)));
+window.addEventListener("afterprint",()=>document.querySelectorAll(".panel").forEach(p=>p.classList.remove("printing")));
+loadData();
+</script>
+</body></html>
